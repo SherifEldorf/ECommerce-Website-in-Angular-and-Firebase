@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #222;
+    color: #fff;
+    font-family: system-ui;
+
+}
+.login{
+    text-align: center;
+    width: 75%;
+    margin: auto;
+}
+.head{
+    text-align: center;
+    margin: 45px 0;
+}
+input{
+    display: block;
+    width: 40%;
+    height: 40px;
+    outline: none;
+    border: none;
+    background: rgb(37, 36, 36);
+    margin: 0 auto 2em auto;
+    border-radius: 4px;
+    padding: 6px;
+    color: #fff;
+
+}
+input:focus{
+    background: #000;
+    transform: scale(1.1);
+}
+button{
+    width: 40%;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: #390053;
+    border-radius: 20px;
+    transition: .5s;
+}
+button:hover{
+    background-color: #51025f;
+    letter-spacing: 1px;
+}
+.alert{
+    margin: 0 auto 2em auto;
+    padding: 8px;
+    width: 40%;
+
+}

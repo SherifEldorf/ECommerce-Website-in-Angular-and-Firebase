@@ -1,0 +1,42 @@
+<div class="crud">
+    <div class="head">
+        <h2>  ADD New Good </h2>
+    </div>
+    <form  #f="ngForm" class="inputs" (ngSubmit)="upload(f.value)" >
+        <div class="SignUp">
+            <input ngModel name="name" #name="ngModel" placeholder=" Good Name " type="text" id="name" required >
+            <div class="alert alert-danger" *ngIf="name.invalid &&name.touched" > name is required </div>
+            <input ngModel name="price" #price="ngModel" placeholder=" Good Price " type="number" id="price" required >
+            <div class="alert alert-danger" *ngIf="price.touched&& price.errors?.['required']" > price is required </div>
+            <input ngModel name="img" #img="ngModel"   type="file"  placeholder="upload img" (change)="selectFile($event)"
+            required >
+            <div *ngIf="currentFileUpload" class="progress mt-2">
+                <div
+                  class="progress-bar progress-bar-striped"
+                  role="progressbar"
+                  attr.aria-valuenow="{{ percentage }}"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  [ngStyle]="{ width: percentage + '%' }"
+                  [ngClass]="{
+                'bg-success': percentage > 70,
+                'bg-info': percentage > 40 && percentage < 70,
+                'bg-warning': percentage > 20 && percentage < 40,
+                'bg-danger': percentage > 0 && percentage < 20
+                }"
+                >
+                  {{ percentage }}%
+                </div>
+              </div>
+            
+            <button  type="submit"  [disabled]="f.invalid"   class="btn btn-primary"  > Upload Good</button>
+
+        </div>
+        
+
+        
+    </form>
+</div>    
+
+
+

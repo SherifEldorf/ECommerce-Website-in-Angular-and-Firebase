@@ -1,0 +1,43 @@
+<table class="table table-sm table-dark">
+    <thead  class="table-primary" >
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">price</th>
+
+        <th scope="col">amount</th>
+        <th scope="col">total</th>
+        <th scope="col">options</th>
+
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of cart; index as i; ">
+      <tr  >
+        <td> {{item.name}} </td>
+        <td> {{item.price | currency }} </td>
+        <td>
+         <input type="number" placeholder="amount" [(ngModel)]="item.amount" >
+        </td>
+        <td> {{(item.amount * item.price) | currency }} </td>
+        <td> <button  class="btn btn-primary"  (click)="update(i)" > save </button> <button class="btn btn-danger" (click)="deleteitem(i)" >delete</button> </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+  <table class="table table-sm table-dark">
+   
+    <tbody >
+       
+      <tr  >       
+        <td> <button  class="btn btn-primary" (click)="calcutotalcoast()"  > calcu total coast </button>
+        <td> totalcoast is {{totalcoast | currency }} </td>
+      </tr>
+
+
+    </tbody>
+    <td> <button  class="order" (click)="order()"  > order </button>
+
+  </table>
+
+  

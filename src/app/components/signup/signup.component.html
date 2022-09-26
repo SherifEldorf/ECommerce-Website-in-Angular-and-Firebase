@@ -1,0 +1,30 @@
+    <div class="crud">
+        <div class="head">
+            <h2> Sign Up </h2>
+        </div>
+        <form  #f="ngForm" class="inputs" (ngSubmit)="Signup(f)" >
+            <div class="SignUp">
+                <input ngModel name="name" #name="ngModel" placeholder=" Your name " type="text" id="name" required >
+                <div class="alert alert-danger" *ngIf="name.invalid &&name.touched" > name is required </div>
+                <input ngModel name="email" #email="ngModel" placeholder=" Your email " type="text" id="email" required email>
+                <div class="alert alert-danger" *ngIf="email.touched&& email.errors?.['required']" > email is required </div>
+                <div class="alert alert-danger" *ngIf="email.touched && email.errors?.['email'] " > Your input doesnot match format </div>
+                <input ngModel name="password" #password="ngModel" placeholder=" Your password " type="password" id="password" required minlength="6">
+                <div class="alert alert-danger" *ngIf="password.touched&& password.errors?.['required']" > password is required </div>
+                <div class="alert alert-danger" *ngIf="password.touched && password.errors?.['minlength'] " > Your password should be more than 6 chars </div>
+                <input ngModel name="confpassword" #confpassword="ngModel" placeholder=" Confirm Your password " type="password" id="confpassword" required>
+                <div class="alert alert-danger" *ngIf="confpassword.touched && password.value!=confpassword.value" >  passwords are not equal  </div>
+                <input ngModel name="address" #address="ngModel" placeholder="Your address" type="text" id="cateogery" required>
+                <div class="alert alert-danger" *ngIf="address.invalid &&address.touched" > address is required </div>
+                <button  type="submit"  class="btn btn-primary" [disabled]="f.invalid ||confpassword.value !=password.value  ">Creat Account</button>
+                <div class="alert alert-danger" *ngIf="errormessage" >  {{errormessage}}  </div>
+
+            </div>
+            
+    
+            
+        </form>
+    </div>    
+    
+    
+    
